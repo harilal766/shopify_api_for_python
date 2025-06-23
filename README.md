@@ -7,7 +7,7 @@ Python library to access shopify admin api.
 ```bash
 pip install shopify_api_for_python
 ``` 
-- Or clone the project.
+- Or clone using this link and `cd` into it .
 ```bash
 git clone "https://github.com/harilal766/shopify_api_for_python"
 ```
@@ -16,8 +16,13 @@ git clone "https://github.com/harilal766/shopify_api_for_python"
 python -m venv env
 ```
 - Activate the environment
+Windows :
 ```bash
 env/scripts/activate
+```
+Linux
+```bash
+source/bin/env/activate
 ```
 
 # Overview - REST API
