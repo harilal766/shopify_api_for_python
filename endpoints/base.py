@@ -1,4 +1,4 @@
-from auth import ACCESS_TOKEN,API_KEY,API_SECRET,STORENAME
+from endpoints.auth import ACCESS_TOKEN,API_KEY,API_SECRET,STORENAME
 
 class Base:
     def __init__(self):
