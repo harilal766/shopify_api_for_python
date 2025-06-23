@@ -16,14 +16,14 @@ git clone "https://github.com/harilal766/shopify_api_for_python"
 python -m venv env
 ```
 - Activate the environment
-Windows :
-```bash
-env/scripts/activate
-```
-Linux
-```bash
-source/bin/env/activate
-```
+    Windows :
+    ```bash
+    env/scripts/activate
+    ```
+    Linux
+    ```bash
+    source/bin/env/activate
+    ```
 
 # Overview - REST API
 
