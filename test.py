@@ -17,3 +17,32 @@ class Test_Base:
         assert base_inst.access_token
         assert base_inst.api_key
         assert base_inst.api_secret
+        
+    def test_creds_pattern(self):
+        pass
+    
+    def test_make_request(self):
+        pass
+        
+class Test_Orders:
+    def test_unfulfilled_orders(self):
+        pass
+    
+    def test_fulfilled_orders(self):
+        pass
+    
+    def test_order_detail(self):
+        pass
+    
+    
+
+
+# Manual Test
+from endpoints.order import Order
+
+b = Base(); o = Order()
+
+
+ord = o.get_orders(limit=20,fulfill=0)
+#print(o.base_url)
+print(ord)
