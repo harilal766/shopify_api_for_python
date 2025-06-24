@@ -17,22 +17,11 @@ class Order(Base):
             if graphql == True:
                 query = """
                 query {
-                    orders(first: 1) {
+                    orders(first: 1, sortKey: CREATED_AT, reverse: true, query: "fulfillment_status:fulfilled") {
                         edges {
                             node {
-                                id
                                 name
-                                createdAt
-                                totalPriceSet {
-                                    shopMoney {
-                                        amount
-                                        currencyCode
-                                    }
-                                }
                             }
-                        }
-                        pageInfo {
-                            hasNextPage
                         }
                     }
                 }
