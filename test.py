@@ -42,7 +42,9 @@ from endpoints.order import Order
 
 b = Base(); o = Order()
 
-
-ord = o.get_orders(limit=20,fulfill=0)
 #print(o.base_url)
+
+#ord = o.get_orders(limit=20,fulfill=0)
+ord = o.get_orders(fulfill="unfulfilled",graphql=True)
 print(ord)
+

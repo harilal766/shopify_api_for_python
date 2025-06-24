@@ -5,7 +5,8 @@ class Order(Base):
         super().__init__()
         self.base_url = f"{self.base_url}/orders.json"
     
-    def get_orders(self,fulfill,limit=None):
+    def get_orders(self,fulfill,graphql: bool = None,limit: int = None,):
+        response = None
         try:
             self.params.update({
                 "limit" : limit if limit else 250
@@ -13,6 +14,33 @@ class Order(Base):
         except Exception as e:
             pass
         else:
-            response = requests.get(self.base_url,headers=self.headers,params=self.params)
+            if graphql == True:
+                query = """
+                query {
+                    orders(first: 1) {
+                        edges {
+                            node {
+                                id
+                                name
+                                createdAt
+                                totalPriceSet {
+                                    shopMoney {
+                                        amount
+                                        currencyCode
+                                    }
+                                }
+                            }
+                        }
+                        pageInfo {
+                            hasNextPage
+                        }
+                    }
+                }
+                """
+                response = requests.post(self.graphql_url,headers=self.headers, json={"query" : query})
+            else:
+                response = requests.get(self.base_url,headers=self.headers,params=self.params)
+                
+                
             print(response.json())
         

@@ -11,6 +11,7 @@ class Base:
         
         if self.storename and self.version:
             self.base_url = f"https://{self.storename}.myshopify.com/admin/api/{self.version}"
+            self.graphql_url = f"{self.base_url}/graphql.json"
             
             self.headers = {
                 "Content-Type" : "application/json",
