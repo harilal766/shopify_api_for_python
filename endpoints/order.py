@@ -1,5 +1,6 @@
 from endpoints.base import Base
 import requests
+from pprint import pprint
 class Order(Base):
     def __init__(self):
         super().__init__()
@@ -17,10 +18,11 @@ class Order(Base):
             if graphql == True:
                 query = """
                 query {
-                    orders(first: 1, sortKey: CREATED_AT, reverse: true, query: "fulfillment_status:fulfilled") {
+                    orders(first:5, sortKey: CREATED_AT, reverse: true, query:"fulfillment_status:unfulfilled") {
                         edges {
                             node {
                                 name
+                                phone
                             }
                         }
                     }
@@ -31,5 +33,5 @@ class Order(Base):
                 response = requests.get(self.base_url,headers=self.headers,params=self.params)
                 
                 
-            print(response.json())
+            pprint(response.json())
         
